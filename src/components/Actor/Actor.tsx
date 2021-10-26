@@ -1,9 +1,13 @@
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.jpg';
-import Member from '../../Model/Member';
+import Cast from '../../models/Cast';
 import { Image, Wrapper } from './Actor.styles';
 
-const Actor = ({ actor }: { actor: Member }) => {
+type PropsType = {
+	actor: Cast;
+};
+
+const Actor: React.FC<PropsType> = ({ actor }) => {
 	return (
 		<Wrapper>
 			<Image

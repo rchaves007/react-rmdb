@@ -7,7 +7,7 @@ interface PropsType {
 	clickable?: boolean;
 }
 
-const Thumb = ({ movieId, image, clickable }: PropsType) => {
+const Thumb: React.FC<PropsType> = ({ movieId, image, clickable }) => {
 	return (
 		<div>
 			{clickable ? (

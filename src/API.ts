@@ -7,6 +7,9 @@ import {
 	SEARCH_BASE_URL,
 	SESSION_ID_URL,
 } from './config';
+import Credits from './models/Credits';
+import Movie from './models/Movie';
+import Movies from './models/Movies';
 
 const defaultConfig = {
 	method: 'POST',
@@ -16,15 +19,15 @@ const defaultConfig = {
 };
 
 const apiSettings = {
-	fetchMovies: async (searchTerm, page) => {
+	fetchMovies: async (searchTerm: string, page: number): Promise<Movies> => {
 		const endpoint = searchTerm ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}` : `${POPULAR_BASE_URL}&page=${page}`;
 		return await (await fetch(endpoint)).json();
 	},
-	fetchMovie: async (movieId) => {
+	fetchMovie: async (movieId: string): Promise<Movie> => {
 		const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
 		return await (await fetch(endpoint)).json();
 	},
-	fetchCredits: async (movieId) => {
+	fetchCredits: async (movieId: string): Promise<Credits> => {
 		const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
 		return await (await fetch(creditsEndpoint)).json();
 	},
@@ -33,7 +36,7 @@ const apiSettings = {
 		const reqToken = await (await fetch(REQUEST_TOKEN_URL)).json();
 		return reqToken.request_token;
 	},
-	authenticate: async (requestToken, username, password) => {
+	authenticate: async (requestToken: string, username: string, password: string) => {
 		const bodyData = {
 			username,
 			password,
@@ -57,7 +60,7 @@ const apiSettings = {
 			return sessionId;
 		}
 	},
-	rateMovie: async (sessionId, movieId, value) => {
+	rateMovie: async (sessionId: string, movieId: string, value: string) => {
 		const endpoint = `${API_URL}movie/${movieId}/rating?api_key=${API_KEY}&session_id=${sessionId}`;
 
 		const rating = await (

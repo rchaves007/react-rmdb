@@ -8,7 +8,7 @@ import SearchBar from './SearchBar/SearchBar';
 import Spinner from './Spinner/Spinner';
 import Thumb from './Thumb/Thumb';
 
-const Home = () => {
+const Home: React.FC = () => {
 	const { movies, loading, error, searchTerm, setSearchTerm, setSearchMore } = useHomeFetch();
 
 	if (error) return <div>Something went wrong ...</div>;

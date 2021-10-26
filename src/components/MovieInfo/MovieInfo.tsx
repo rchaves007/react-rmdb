@@ -1,10 +1,14 @@
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.jpg';
-import Movie from '../../Model/Movie';
+import Movie from '../../models/Movie';
 import Thumb from '../Thumb/Thumb';
 import { Content, Text, Wrapper } from './MovieInfo.styles';
 
-const MovieInfo = ({ movie }: { movie: Movie }) => {
+type PropsType = {
+	movie: Movie;
+};
+
+const MovieInfo: React.FC<PropsType> = ({ movie }) => {
 	return (
 		<Wrapper backdrop={movie.backdrop_path}>
 			<Content>

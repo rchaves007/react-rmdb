@@ -1,12 +1,12 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SearchIcon from '../../images/search-icon.svg';
 import { Content, Wrapper } from './SearchBar.styles';
 
-interface PropsTypes {
-	setSearchTerm: Dispatch<SetStateAction<string>>;
-}
+type PropsType = {
+	setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+};
 
-const SearchBar = ({ setSearchTerm }: PropsTypes) => {
+const SearchBar: React.FC<PropsType> = ({ setSearchTerm }) => {
 	const [state, setState] = useState('');
 	const initial = useRef(true);
 

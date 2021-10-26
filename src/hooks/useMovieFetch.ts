@@ -1,41 +1,11 @@
 import { useEffect, useState } from 'react';
 import API from '../API';
 import { getPersistedState, setPersistedState } from '../helpers';
-import Member from '../Model/Member';
-import Movie from '../Model/Movie';
+import Crew from '../models/Crew';
+import Movie from '../models/Movie';
 
-const initialState: Movie = {
-	actors: [],
-	adult: false,
-	backdrop_path: '',
-	belongs_to_collection: null,
-	budget: 0,
-	directors: [],
-	genres: [],
-	homepage: '',
-	id: 0,
-	imdb_id: '',
-	original_language: '',
-	original_title: '',
-	overview: '',
-	popularity: 0,
-	poster_path: '',
-	production_companies: [],
-	production_countries: [],
-	release_date: '',
-	revenue: 0,
-	runtime: 0,
-	spoken_languages: [],
-	status: '',
-	tagline: '',
-	title: '',
-	video: false,
-	vote_average: 0,
-	vote_count: 0,
-};
-
-export const useMovieFetch = (movieId: string | undefined) => {
-	const [movie, setMovie] = useState(initialState);
+export const useMovieFetch = (movieId: string) => {
+	const [movie, setMovie] = useState({} as Movie);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
 
@@ -46,7 +16,7 @@ export const useMovieFetch = (movieId: string | undefined) => {
 				setError(false);
 				const movie: Movie = await API.fetchMovie(movieId);
 				const credits = await API.fetchCredits(movieId);
-				const directors = credits.crew.filter((member: Member) => member.job === 'Director');
+				const directors = credits.crew.filter((member: Crew) => member.job === 'Director');
 
 				setMovie({
 					...movie,

@@ -6,7 +6,7 @@ interface PropsType {
 	image: string;
 }
 
-const HeroImage = ({ title, text, image }: PropsType) => {
+const HeroImage: React.FC<PropsType> = ({ title, text, image }) => {
 	return (
 		<Wrapper image={image}>
 			<Content>

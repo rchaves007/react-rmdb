@@ -7,9 +7,9 @@ import MovieInfo from './MovieInfo/MovieInfo';
 import MovieInfoBar from './MovieInfoBar/MovieInfoBar';
 import { Spinner } from './Spinner/Spinner.styles';
 
-const Movie = () => {
+const Movie: React.FC = () => {
 	const { movieId } = useParams();
-	const { movie, loading, error } = useMovieFetch(movieId);
+	const { movie, loading, error } = useMovieFetch(movieId!);
 
 	if (loading) return <Spinner />;
 	if (error) return <div>Somethign went wrong ...</div>;

@@ -1,13 +1,13 @@
 import { calcTime, convertMoney } from '../../helpers';
 import { Content, Wrapper } from './MovieInfoBar.styles';
 
-interface PropsTypes {
+interface PropsType {
 	time: number;
 	budget: number;
 	revenue: number;
 }
 
-const MovieInfoBar = ({ time, budget, revenue }: PropsTypes) => {
+const MovieInfoBar: React.FC<PropsType> = ({ time, budget, revenue }) => {
 	return (
 		<Wrapper>
 			<Content>

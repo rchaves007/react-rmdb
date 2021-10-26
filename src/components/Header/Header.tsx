@@ -3,7 +3,7 @@ import RMDBLogo from '../../images/react-movie-logo.svg';
 import TMDBLogo from '../../images/tmdb_logo.svg';
 import { Content, RMDBLogoImg, TMDBLogoImg, Wrapper } from './Header.styles';
 
-const Header = () => {
+const Header: React.FC = () => {
 	return (
 		<Wrapper>
 			<Content>
