@@ -6,7 +6,7 @@ type Movie = {
 	backdrop_path: string;
 	budget: number;
 	directors: Crew[];
-	id: number;
+	id: string;
 	imdb_id: string;
 	original_title: string;
 	overview: string;

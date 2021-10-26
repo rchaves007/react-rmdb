@@ -1,9 +1,9 @@
 import { Wrapper } from './Button.styles';
 
-interface PropsType {
+type PropsType = {
 	text: string;
 	callback: () => void;
-}
+};
 
 const Button: React.FC<PropsType> = ({ text, callback }) => {
 	return (

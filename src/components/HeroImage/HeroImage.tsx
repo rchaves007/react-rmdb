@@ -1,10 +1,10 @@
 import { Content, Text, Wrapper } from './HeroImage.styles';
 
-interface PropsType {
+type PropsType = {
 	title: string;
 	text: string;
 	image: string;
-}
+};
 
 const HeroImage: React.FC<PropsType> = ({ title, text, image }) => {
 	return (

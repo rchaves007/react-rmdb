@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Image } from './Thumb.styles';
 
-interface PropsType {
-	movieId: number;
+type PropsType = {
 	image: string;
+	movieId?: number;
 	clickable?: boolean;
-}
+};
 
 const Thumb: React.FC<PropsType> = ({ movieId, image, clickable }) => {
 	return (
